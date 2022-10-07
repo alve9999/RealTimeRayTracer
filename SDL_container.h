@@ -8,7 +8,7 @@ public:
     SDL_Renderer* renderer;
     SDL_container();
 
-    void render_pixel_buffer(pixel_buffer image);
+    void render_pixel_buffer(glm::vec3* image);
 };
 
 

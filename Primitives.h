@@ -1,23 +1,26 @@
 #pragma once
-#include "Ray.h"
+#include "ray.h"
 #include "g-truc-glm-bf71a83/glm/glm.hpp"
+#include "material.h"
 //base class for all objects that can exist in a schene
 class primitives{
 public:
-	virtual Ray check_hit(Ray incoming_ray){};
+	material* object_material;
+	virtual ray check_hit(ray incoming_ray,float& t);
 };
 
 class plane : public primitives {
 public:
-	glm::vec3 origin,normal;
-	plane(glm::vec3 aorigin, glm::vec3 anormal);
-	Ray check_hit(Ray incoming_ray);
+	glm::vec3 normal; //the normal vector for the plane
+	float d; //the value for d in the plane equation ax + bx + cx + d = 0
+	plane(glm::vec3 anormal, float ad,material* amaterial);
+	ray check_hit(ray incoming_ray, float& t);
 };
 
 class sphere : public primitives {
 public:
 	glm::vec3 origin;
 	float radius;
-	sphere(glm::vec3 aorigin,float aradius);
-	Ray check_hit(Ray incoming_ray);
+	sphere(glm::vec3 aorigin,float aradius, material* amaterial);
+	ray check_hit(ray incoming_ray, float& t);
 };

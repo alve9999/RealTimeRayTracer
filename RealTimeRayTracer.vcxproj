@@ -58,6 +58,7 @@
     </Link>
     <CudaCompile>
       <TargetMachinePlatform>64</TargetMachinePlatform>
+      <GenerateRelocatableDeviceCode>true</GenerateRelocatableDeviceCode>
     </CudaCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -87,16 +88,19 @@
     <ClInclude Include="common.h" />
     <ClInclude Include="material.h" />
     <ClInclude Include="pixel_buffer.h" />
-    <ClInclude Include="Primitives.h" />
-    <ClInclude Include="Ray.h" />
+    <ClInclude Include="primitives.h" />
+    <ClInclude Include="ray.h" />
+    <ClInclude Include="scene.h" />
     <ClInclude Include="SDL_container.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="camera.cpp" />
+    <ClCompile Include="common.cpp" />
     <ClCompile Include="material.cpp" />
     <ClCompile Include="pixel_buffer.cpp" />
-    <ClCompile Include="Primitives.cpp" />
-    <ClCompile Include="Ray.cpp" />
+    <ClCompile Include="primitives.cpp" />
+    <ClCompile Include="ray.cpp" />
+    <ClCompile Include="scene.cpp" />
     <ClCompile Include="SDL_container.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
